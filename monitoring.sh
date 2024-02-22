@@ -52,8 +52,8 @@ sIP=$(hostname -I)
 sMAC=$(ip link | awk '/ether/ {print $2}')
 
 # Print the number of sudo cmds used
-uSUDO=$(sudo journalctl _COMM=sudo | wc -l)
-
+#uSUDO=$(sudo journalctl _COMM=sudo | wc -l)
+uSUDO=$(grep -c 'sudo ' ~/.bash_history)
 # Print all the collected information
 wall "	#Architeture: $arch
     #CPU physical: $CPUS
